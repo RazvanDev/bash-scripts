@@ -22,6 +22,7 @@ sed -i "/# Use with the following in named.conf, adjusting the allow list as nee
 RNDC_KEY=$(cat /etc/rndc.conf | grep -Pzo "key\s\"rndc-key\"\s{\s*algorithm.*\s*secret.*\s};")
 
 tee -a /etc/named.conf > /dev/null <<EOT
+# Use with the following in named.conf, adjusting the allow list as needed:
 $RNDC_KEY
 
 controls {
