@@ -17,6 +17,7 @@ chgrp named /etc/rndc.conf
 
 # replace old key if exists in /etc/named.conf
 sed -i "/# Use with the following in named.conf, adjusting the allow list as needed:/q" /etc/named.conf
+sed -i '/# Use with the following in named.conf, adjusting the allow list as needed:/d' /etc/named.conf
 
 # add new key to file
 RNDC_KEY=$(cat /etc/rndc.conf | grep -Pzo "key\s\"rndc-key\"\s{\s*algorithm.*\s*secret.*\s};")
